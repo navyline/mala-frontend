@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Phone, Loader2 } from "lucide-react";
 import Cookies from "js-cookie";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [phone, setPhone] = useState("");
@@ -72,6 +73,8 @@ export default function LoginPage() {
                   className="block w-full pl-10 pr-4 py-3 text-black border rounded-xl"
                   placeholder="08xxxxxxxx"
                   value={phone}
+                  minLength={10}
+                  maxLength={10}
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
@@ -91,6 +94,14 @@ export default function LoginPage() {
                 "เข้าสู่ระบบ"
               )}
             </button>
+
+            {/* register Link */}
+            <p className="text-center text-sm text-gray-500 mt-4">
+              ยังไม่ได้เป็นสมาชิก?{" "}
+              <Link href="/register" className="text-orange-600 font-semibold hover:underline">
+                สมัครสมาชิก
+              </Link>
+            </p>
           </form>
 
         </div>
